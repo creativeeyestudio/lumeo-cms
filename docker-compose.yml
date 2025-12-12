@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: lumeo-back
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: lumeo-front
+    env_file:
+      - ./frontend/.env
+    depends_on:
+      - backend
+
+  postgres:
+    image: postgres:16
+    container_name: lumeo-db
+    environment:
+      POSTGRES_USER: lumeo
+      POSTGRES_PASSWORD: lumeo
+      POSTGRES_DB: lumeo
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
