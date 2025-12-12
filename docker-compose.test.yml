@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      target: test
+    command: npm run test
+
+  frontend:
+    build:
+      context: ./frontend
+      target: test
+    command: npm run test
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test

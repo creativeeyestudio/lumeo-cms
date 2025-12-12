@@ -1,13 +1,19 @@
-FROM node:20-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
-RUN npm install
+# Installer PNPM
+RUN npm install -g pnpm
 
+# Copier les fichiers PNPM
+COPY package.json pnpm-lock.yaml ./
+
+# Installer deps
+RUN pnpm install
+
+# Copier le reste
 COPY . .
 
-ENV NODE_ENV=development
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["pnpm", "dev"]
