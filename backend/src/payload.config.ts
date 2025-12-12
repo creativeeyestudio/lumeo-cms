@@ -24,6 +24,7 @@ import Cgv from './globals/Cgv'
 import Customization from './globals/Customization'
 
 import { fields, formBuilderPlugin } from '@payloadcms/plugin-form-builder'
+import Themes from './collections/Themes';
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -41,7 +42,7 @@ export default buildConfig({
       }
     }
   },
-  collections: [Users, Media, Pages, Posts, Navigation],
+  collections: [Users, Media, Pages, Posts, Navigation, Themes],
   globals: [LegalNotice, Confidentiality, Cgv, Customization],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
