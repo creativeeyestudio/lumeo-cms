@@ -1,0 +1,21 @@
+name: Vérification nom des branches
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  verify-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch_model
+        run: |
+          BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          if [[ "$BRANCH_NAME" =~ ^(feat|fix)_#[0-9]+_.*$ ]]; then
+            echo "Nom de branche valide."
+          else
+            echo "Nom de branche invalide : $BRANCH_NAME"
+            echo "Doit respecter : feat_#XXX_... ou fix_#XXX_..."
+            exit 1
+          fi
