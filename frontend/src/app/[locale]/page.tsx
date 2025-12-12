@@ -1,8 +1,3 @@
-import {fetchHomePage} from "@/lib/cms";
-import ContentPageItems from "@/components/layout/ContentPageItems";
-import { notFound } from "next/navigation";
-import { headers } from 'next/headers';
-
 export type PageHomeParams = Promise<{
   locale: string;
 }>;
@@ -12,11 +7,6 @@ export type PageHomeParams = Promise<{
 -------------------------------------------------- */
 export default async function HomePage(props: { params: PageHomeParams }) {
   const { locale } = await props.params;
-  const headersList = await headers();
-  const site = headersList.get('x-website') ?? 'default-site';
-  const page = await fetchHomePage(site, locale);
 
-  if (!page) return notFound();
-
-  return <ContentPageItems blocks={page.content.layout} />;
+  return <></>;
 }
