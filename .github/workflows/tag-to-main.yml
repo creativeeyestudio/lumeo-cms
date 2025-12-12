@@ -1,0 +1,38 @@
+name: Merge tag into main
+
+on:
+  push:
+    tags:
+      - 'v*'   # Réagit aux tags commençant par v (ex: v1.2.3)
+
+permissions:
+  contents: write   # Nécessaire pour pouvoir pousser sur main
+
+jobs:
+  merge-tag-into-main:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # IMPORTANT pour que git puisse voir les branches et tags
+
+      - name: Config Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Checkout main
+        run: |
+          git checkout main
+
+      - name: Merge tag into main (fast-forward only)
+        run: |
+          TAG_REF="${GITHUB_REF#refs/tags/}"
+          echo "Merging tag $TAG_REF into main"
+          git merge "$TAG_REF" --ff-only
+
+      - name: Push to main
+        run: |
+          git push origin main
