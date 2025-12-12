@@ -1,0 +1,24 @@
+{
+  "name": "lumeo-cms",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev:front": "npm --workspace=frontend run dev",
+    "dev:back": "npm --workspace=backend run dev",
+    "dev": "concurrently -n FRONTEND,BACKEND -c cyan,magenta \"npm run dev:front\" \"npm run dev:back\"",
+
+    "build:front": "npm --workspace=frontend run build",
+    "build:back": "npm --workspace=backend run build",
+    "build": "npm run build:front && npm run build:back",
+
+    "start:front": "npm --workspace=frontend run start",
+    "start:back": "npm --workspace=backend run start",
+    "start": "npm run start:back && npm run start:front"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
