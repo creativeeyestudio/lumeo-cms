@@ -1,0 +1,73 @@
+{
+  "name": "lumeo/theme-base",
+  "version": "1.0.0",
+  "description": "Thème de base du CMS Lumeo",
+  "license": "MIT",
+  "author": "Your Name",
+  "homepage": "https://github.com/your-org/cms-theme-example",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/cms-theme-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/cms-theme-example/issues"
+  },
+
+  "type": "module",
+
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles": {
+      "import": "./dist/styles.css"
+    }
+  },
+
+  "files": [
+    "dist"
+  ],
+
+  "sideEffects": [
+    "*.css"
+  ],
+
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "next": ">=14"
+  },
+
+  "dependencies": {
+    "@cms/core": "^1.0.0"
+  },
+
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "tsup": "^8.0.0"
+  },
+
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "build:styles": "tailwindcss -c tailwind.config.ts -i src/styles/globals.css -o dist/styles.css",
+    "build:all": "npm run build && npm run build:styles",
+    "dev": "tsup src/index.ts --watch",
+    "prepublishOnly": "npm run build:all"
+  },
+
+  "keywords": [
+    "cms",
+    "cms-theme",
+    "nextjs",
+    "payload",
+    "page-builder"
+  ]
+}
