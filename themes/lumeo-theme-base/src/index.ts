@@ -12,12 +12,12 @@ import TextImage from './blocks/TextImage/TextImage'
 import TextImageDouble from './blocks/TextImageDouble/TextImageDouble'
 import TextIntro from './blocks/TextIntro/TextIntro'
 
-import Header from './globals/Header/Header'
-import Footer from './globals/Footer/Footer'
-
 import ButtonsList from './components/ButtonsList/ButtonsList'
 import ImageComponent from './components/Image/Image'
 import TextComponent from './components/Text/Text'
+
+import Header from './globals/Header/Header'
+import Footer from './globals/Footer/Footer'
 
 const theme: Theme = {
   layouts: {
@@ -40,10 +40,7 @@ const theme: Theme = {
     'text': TextComponent,
   },
 
-  globals: {
-    Header,
-    Footer,
-  },
+  globals: { Header, Footer },
 }
 
 export default theme
