@@ -1,3 +1,5 @@
+import { ThemeProvider } from "../../../core/theme/ThemeProvider";
+
 interface LayoutParams {
   locale: string;
 }
@@ -11,7 +13,9 @@ export default async function RootLayout({ children, params }: {
   return (
     <html lang={locale} dir="ltr">
       <body>
-        <main>{children}</main>
+        <ThemeProvider>
+          <main>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+'use client'
+
 import { GlobalSlot } from './GlobalSlot'
 import { useTheme } from '../theme/ThemeProvider'
 import { BlockRenderer } from './BlockRenderer'
