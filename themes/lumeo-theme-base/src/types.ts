@@ -5,6 +5,7 @@ export type BlockVariants = Record<string, ComponentType<any>>
 export interface Theme {
   layouts?: Record<string, ComponentType<any>>
   blocks?: Record<string, ComponentType<any> | BlockVariants>
+  components?: Record<string, ComponentType<any> | BlockVariants>
   globals?: {
     Header?: ComponentType<any>
     Footer?: ComponentType<any>

@@ -15,6 +15,10 @@ import TextIntro from './blocks/TextIntro/TextIntro'
 import Header from './globals/Header/Header'
 import Footer from './globals/Footer/Footer'
 
+import ButtonsList from './components/ButtonsList/ButtonsList'
+import ImageComponent from './components/Image/Image'
+import TextComponent from './components/Text/Text'
+
 const theme: Theme = {
   layouts: {
     Page: PageLayout,
@@ -28,6 +32,12 @@ const theme: Theme = {
     'text-image': TextImage,
     'text-image-double': TextImageDouble,
     'text-intro': TextIntro,
+  },
+
+  components: {
+    'buttons-list': ButtonsList,
+    'image': ImageComponent,
+    'text': TextComponent,
   },
 
   globals: {
