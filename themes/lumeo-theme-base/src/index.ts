@@ -1,29 +1,38 @@
-import type { Theme } from '@cms/core/theme'
+'use client'
 
-import { PageLayout } from './layouts/Page'
+import type { Theme } from './types'
 
-// Blocks
-import { TextImageBlock } from './blocks/TextImage'
-import { HeroBlock } from './blocks/Hero'
+import PageLayout from './layout/PageLayout'
+
+import Heroscreen from './blocks/Heroscreen/Heroscreen'
+import HtmlContent from './blocks/HtmlContent/HtmlContent'
+import Parallax from './blocks/Parallax/Parallax'
+import Text from './blocks/Text/Text'
+import TextImage from './blocks/TextImage/TextImage'
+import TextImageDouble from './blocks/TextImageDouble/TextImageDouble'
+import TextIntro from './blocks/TextIntro/TextIntro'
+
+import Header from './globals/Header/Header'
+import Footer from './globals/Footer/Footer'
 
 const theme: Theme = {
-  meta: {
-    name: 'Example Theme',
-    version: '1.0.0',
-  },
-
   layouts: {
     Page: PageLayout,
   },
 
   blocks: {
-    'text-image': TextImageBlock,
-    hero: HeroBlock,
+    'heroscreen': Heroscreen,
+    'htmlContent': HtmlContent,
+    'parallax': Parallax,
+    'text': Text,
+    'text-image': TextImage,
+    'text-image-double': TextImageDouble,
+    'text-intro': TextIntro,
   },
 
   globals: {
-    // Header,
-    // Footer,
+    Header,
+    Footer,
   },
 }
 
