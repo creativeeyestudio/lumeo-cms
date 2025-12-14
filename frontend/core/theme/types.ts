@@ -8,7 +8,11 @@ export interface Theme {
 
   layouts?: Record<string, ComponentType<any>>
   blocks?: Record<string, ComponentType<any> | BlockVariants>
-  globals?: Record<string, ComponentType<any>>
+  globals?: {
+    Header?: ComponentType<any>
+    Footer?: ComponentType<any>
+    [slot: string]: ComponentType<any> | undefined
+  }
 }
 
 export type BlockVariants = {

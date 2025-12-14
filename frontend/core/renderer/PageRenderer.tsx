@@ -1,3 +1,4 @@
+import { GlobalSlot } from './GlobalSlot'
 import { useTheme } from '../theme/ThemeProvider'
 import { BlockRenderer } from './BlockRenderer'
 import { BlockError } from './errors'
@@ -12,10 +13,16 @@ export function PageRenderer({ page }: { page: any }) {
   }
 
   return (
-    <Layout page={page}>
-      {page.blocks?.map((block: any, i: number) => (
-        <BlockRenderer key={i} block={block} />
-      ))}
-    </Layout>
+    <>
+      <GlobalSlot name="Header" data={page.header} />
+
+      <Layout page={page}>
+        {page.blocks?.map((block: any, i: number) => (
+          <BlockRenderer key={i} block={block} />
+        ))}
+      </Layout>
+
+      <GlobalSlot name="Footer" data={page.footer} />
+    </>
   )
 }
