@@ -1,3 +1,5 @@
+import { PageRenderer } from "../../../../core";
+
 export type CurrentPageParams = Promise<{
   locale: string;
 }>;
@@ -5,5 +7,5 @@ export type CurrentPageParams = Promise<{
 export default async function CurrentPage(props: { params: CurrentPageParams }) {
   const { locale } = await props.params;
 
-  return <></>;
+  return <PageRenderer page={undefined} />;
 }
