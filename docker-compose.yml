@@ -6,7 +6,7 @@ services:
       context: ./backend
     container_name: lumeo-back
     env_file:
-      - ./backend/.env
+      - .env
     depends_on:
       - postgres
 
@@ -15,7 +15,7 @@ services:
       context: ./frontend
     container_name: lumeo-front
     env_file:
-      - ./frontend/.env
+      - .env
     depends_on:
       - backend
 

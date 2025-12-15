@@ -1,5 +1,3 @@
-import { PageRenderer } from "../../../core";
-
 export type PageHomeParams = Promise<{
   locale: string;
 }>;
@@ -7,5 +5,5 @@ export type PageHomeParams = Promise<{
 export default async function HomePage(props: { params: PageHomeParams }) {
   const { locale } = await props.params;
 
-  return <PageRenderer page={undefined} />;
+  return <></>;
 }
