@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
 
-  transpilePackages: ['lumeo-theme-base'],
+  transpilePackages: ['@lumeo-cms/base-theme'],
 
   // Images
   images: {

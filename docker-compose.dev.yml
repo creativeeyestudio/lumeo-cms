@@ -11,8 +11,6 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
-      - ./themes:/app/themes
-      - ./plugins:/app/plugins
 
   frontend:
     build:
@@ -24,9 +22,12 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
-      - ./themes:/app/themes
-      - ./plugins:/app/plugins
+      - lumeo_theme_volume:/app/theme-dist
 
   postgres:
     ports:
       - "5433:5432"
+
+volumes:
+  lumeo_theme_volume:
+    external: true
