@@ -14,7 +14,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir="ltr">
       <body>
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );
