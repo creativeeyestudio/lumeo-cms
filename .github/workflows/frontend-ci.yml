@@ -1,8 +1,8 @@
 name: CI Frontend
 
 on:
-  push:
-    branches-ignore:
+  pull_request:
+    branches:
       - main
       - develop
 
