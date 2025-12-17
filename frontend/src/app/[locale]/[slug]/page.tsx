@@ -5,7 +5,7 @@ export type CurrentPageParams = Promise<{
 export default async function CurrentPage(props: {
   params: CurrentPageParams;
 }) {
-  // const { locale } = await props.params;
+  const { locale } = await props.params;
 
-  return <></>;
+  return <>{locale}</>;
 }
