@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -21,11 +22,14 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@lumeo-cms/base-theme": ["theme-dist/index.js"],
-      "@lumeo-cms/base-theme/*": ["theme-dist/*"]
+      "@/*": ["src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
