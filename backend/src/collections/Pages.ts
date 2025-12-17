@@ -87,6 +87,33 @@ const Pages: CollectionConfig = {
       ],
     },
   ],
+  endpoints: [
+    {
+      path: '/:slug',
+      method: 'get',
+      handler: async (req) => {
+        const { slug } = req.routeParams
+
+        const page = await req.payload.find({
+          collection: 'pages',
+          where: {
+            slug: { equals: slug },
+            'config.published': { equals: '1' },
+          },
+          limit: 1,
+        })
+
+        if (!page.docs.length) {
+          return Response.json(
+            { error: 'Page not found' },
+            { status: 404 }
+          )
+        }
+
+        return Response.json(page.docs[0])
+      },
+    },
+  ],
 }
 
 export default Pages
