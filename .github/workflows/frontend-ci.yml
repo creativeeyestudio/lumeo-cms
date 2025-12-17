@@ -73,3 +73,16 @@ jobs:
           cache: 'pnpm'
 
       - name: Enable Corepack and PNPM
+        run: |
+          corepack enable
+          corepack prepare pnpm@9.0.0 --activate
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: pnpm install --frozen-lockfile
+
+      - name: Build application
+        working-directory: frontend
+        run: pnpm run build
+        env:
+          CI: true
