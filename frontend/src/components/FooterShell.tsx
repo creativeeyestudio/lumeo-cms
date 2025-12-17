@@ -1,9 +1,7 @@
 export interface FooterShellProps {
-    children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function HeaderShell({ children }: FooterShellProps) {
-    return (
-        {children}
-    )
+  return { children };
 }
