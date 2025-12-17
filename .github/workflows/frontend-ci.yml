@@ -20,17 +20,15 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: Enable Corepack and PNPM
+      - name: Install PNPM and dependencies
+        working-directory: frontend
         run: |
           corepack enable
           corepack prepare pnpm@9.0.0 --activate
-
-      - name: Install dependencies
-        working-directory: ./frontend
-        run: pnpm install --frozen-lockfile
+          pnpm install --frozen-lockfile
 
       - name: Run prettier check
-        working-directory: ./frontend
+        working-directory: frontend
         run: pnpm run format
 
   lint:
@@ -46,17 +44,15 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: Enable Corepack and PNPM
+      - name: Install PNPM and dependencies
+        working-directory: frontend
         run: |
           corepack enable
           corepack prepare pnpm@9.0.0 --activate
-
-      - name: Install dependencies
-        working-directory: ./frontend
-        run: pnpm install --frozen-lockfile
+          pnpm install --frozen-lockfile
 
       - name: Run lint check
-        working-directory: ./frontend
+        working-directory: frontend
         run: pnpm run lint
 
   build:
@@ -72,17 +68,15 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: Enable Corepack and PNPM
+      - name: Install PNPM and dependencies
+        working-directory: frontend
         run: |
           corepack enable
           corepack prepare pnpm@9.0.0 --activate
-
-      - name: Install dependencies
-        working-directory: ./frontend
-        run: pnpm install --frozen-lockfile
+          pnpm install --frozen-lockfile
 
       - name: Build application
-        working-directory: ./frontend
+        working-directory: frontend
         run: pnpm run build
         env:
           CI: true
