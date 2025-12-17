@@ -2,8 +2,9 @@ name: Vérification nom des branches
 
 on:
   push:
-    branches:
-      - '*'
+    branches-ignore:
+      - main
+      - develop
 
 jobs:
   verify-branch-name:
