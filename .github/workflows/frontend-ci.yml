@@ -76,4 +76,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build application
-        working-directory: fron
+        working-directory: frontend
+        run: pnpm run build
+        env:
+          CI: true
