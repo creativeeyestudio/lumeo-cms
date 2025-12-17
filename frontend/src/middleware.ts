@@ -28,9 +28,12 @@ export function middleware(request: NextRequest) {
   }
 
   // On vérifie l'URL et on l'intègre dans le header
-  const hostWithoutWww = (request.headers.get('host') ?? '').replace(/^www\./, '');
+  const hostWithoutWww = (request.headers.get("host") ?? "").replace(
+    /^www\./,
+    "",
+  );
   const res = NextResponse.next();
-  res.headers.set('x-website', hostWithoutWww);
+  res.headers.set("x-website", hostWithoutWww);
 
   // Laisser passer tout le reste
   return res;

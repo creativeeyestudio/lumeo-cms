@@ -1,9 +1,7 @@
 export interface HeaderShellProps {
-    children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function HeaderShell({ children }: HeaderShellProps) {
-    return (
-        {children}
-    )
+  return { children };
 }

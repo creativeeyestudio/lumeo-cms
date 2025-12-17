@@ -7,5 +7,5 @@ export default async function CurrentPage(props: {
 }) {
   const { locale } = await props.params;
 
-  return <></>;
+  return <>{locale}</>;
 }

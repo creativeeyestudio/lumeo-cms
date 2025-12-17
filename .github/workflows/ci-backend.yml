@@ -1,0 +1,72 @@
+name: CI Back End
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: backend
+        run: |
+          corepack enable
+          corepack prepare pnpm@9.0.0 --activate
+          pnpm install --frozen-lockfile
+
+      - name: TypeScript check
+        working-directory: backend
+        run: pnpm run typecheck
+
+  payload-types:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: backend
+        run: |
+          corepack enable
+          corepack prepare pnpm@9.0.0 --activate
+          pnpm install --frozen-lockfile
+
+      - name: Generate CMS types
+        working-directory: backend
+        run: pnpm run generate:types
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: backend
+        run: |
+          corepack enable
+          corepack prepare pnpm@9.0.0 --activate
+          pnpm install --frozen-lockfile
+
+      - name: Build CMS app
+        working-directory: backend
+        run: pnpm run build

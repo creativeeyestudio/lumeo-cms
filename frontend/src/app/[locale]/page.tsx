@@ -5,5 +5,5 @@ export type PageHomeParams = Promise<{
 export default async function HomePage(props: { params: PageHomeParams }) {
   const { locale } = await props.params;
 
-  return <></>;
+  return <>{locale}</>;
 }
