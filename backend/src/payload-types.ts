@@ -222,10 +222,10 @@ export interface Page {
                 | {
                     buttonsListField?:
                       | {
+                          label: string;
                           type: 'page' | 'post' | 'external';
                           page?: (number | null) | Page;
                           post?: (number | null) | Post;
-                          label?: string | null;
                           url?: string | null;
                           image?: (number | null) | Media;
                           newTab?: boolean | null;
@@ -272,10 +272,10 @@ export interface Page {
                 | {
                     buttonsListField?:
                       | {
+                          label: string;
                           type: 'page' | 'post' | 'external';
                           page?: (number | null) | Page;
                           post?: (number | null) | Post;
-                          label?: string | null;
                           url?: string | null;
                           image?: (number | null) | Media;
                           newTab?: boolean | null;
@@ -323,10 +323,10 @@ export interface Page {
                 | {
                     buttonsListField?:
                       | {
+                          label: string;
                           type: 'page' | 'post' | 'external';
                           page?: (number | null) | Page;
                           post?: (number | null) | Post;
-                          label?: string | null;
                           url?: string | null;
                           image?: (number | null) | Media;
                           newTab?: boolean | null;
@@ -422,10 +422,10 @@ export interface Post {
               | {
                   buttonsListField?:
                     | {
+                        label: string;
                         type: 'page' | 'post' | 'external';
                         page?: (number | null) | Page;
                         post?: (number | null) | Post;
-                        label?: string | null;
                         url?: string | null;
                         image?: (number | null) | Media;
                         newTab?: boolean | null;
@@ -472,10 +472,10 @@ export interface Post {
               | {
                   buttonsListField?:
                     | {
+                        label: string;
                         type: 'page' | 'post' | 'external';
                         page?: (number | null) | Page;
                         post?: (number | null) | Post;
-                        label?: string | null;
                         url?: string | null;
                         image?: (number | null) | Media;
                         newTab?: boolean | null;
@@ -522,10 +522,10 @@ export interface Post {
               | {
                   buttonsListField?:
                     | {
+                        label: string;
                         type: 'page' | 'post' | 'external';
                         page?: (number | null) | Page;
                         post?: (number | null) | Post;
-                        label?: string | null;
                         url?: string | null;
                         image?: (number | null) | Media;
                         newTab?: boolean | null;
@@ -573,10 +573,10 @@ export interface Post {
               | {
                   buttonsListField?:
                     | {
+                        label: string;
                         type: 'page' | 'post' | 'external';
                         page?: (number | null) | Page;
                         post?: (number | null) | Post;
-                        label?: string | null;
                         url?: string | null;
                         image?: (number | null) | Media;
                         newTab?: boolean | null;
@@ -640,19 +640,19 @@ export interface Navigation {
   menuId: 'main-menu' | 'secondary-menu' | 'footer-menu';
   items?:
     | {
+        label: string;
         type: 'page' | 'post' | 'external';
         page?: (number | null) | Page;
         post?: (number | null) | Post;
-        label?: string | null;
         url?: string | null;
         image?: (number | null) | Media;
         newTab?: boolean | null;
         children?:
           | {
+              label: string;
               type: 'page' | 'post' | 'external';
               page?: (number | null) | Page;
               post?: (number | null) | Post;
-              label?: string | null;
               url?: string | null;
               image?: (number | null) | Media;
               newTab?: boolean | null;
@@ -1046,10 +1046,10 @@ export interface PagesSelect<T extends boolean = true> {
                                 buttonsListField?:
                                   | T
                                   | {
+                                      label?: T;
                                       type?: T;
                                       page?: T;
                                       post?: T;
-                                      label?: T;
                                       url?: T;
                                       image?: T;
                                       newTab?: T;
@@ -1088,10 +1088,10 @@ export interface PagesSelect<T extends boolean = true> {
                                 buttonsListField?:
                                   | T
                                   | {
+                                      label?: T;
                                       type?: T;
                                       page?: T;
                                       post?: T;
-                                      label?: T;
                                       url?: T;
                                       image?: T;
                                       newTab?: T;
@@ -1131,10 +1131,10 @@ export interface PagesSelect<T extends boolean = true> {
                                 buttonsListField?:
                                   | T
                                   | {
+                                      label?: T;
                                       type?: T;
                                       page?: T;
                                       post?: T;
-                                      label?: T;
                                       url?: T;
                                       image?: T;
                                       newTab?: T;
@@ -1225,10 +1225,10 @@ export interface PostsSelect<T extends boolean = true> {
                           buttonsListField?:
                             | T
                             | {
+                                label?: T;
                                 type?: T;
                                 page?: T;
                                 post?: T;
-                                label?: T;
                                 url?: T;
                                 image?: T;
                                 newTab?: T;
@@ -1267,10 +1267,10 @@ export interface PostsSelect<T extends boolean = true> {
                           buttonsListField?:
                             | T
                             | {
+                                label?: T;
                                 type?: T;
                                 page?: T;
                                 post?: T;
-                                label?: T;
                                 url?: T;
                                 image?: T;
                                 newTab?: T;
@@ -1309,10 +1309,10 @@ export interface PostsSelect<T extends boolean = true> {
                           buttonsListField?:
                             | T
                             | {
+                                label?: T;
                                 type?: T;
                                 page?: T;
                                 post?: T;
-                                label?: T;
                                 url?: T;
                                 image?: T;
                                 newTab?: T;
@@ -1352,10 +1352,10 @@ export interface PostsSelect<T extends boolean = true> {
                           buttonsListField?:
                             | T
                             | {
+                                label?: T;
                                 type?: T;
                                 page?: T;
                                 post?: T;
-                                label?: T;
                                 url?: T;
                                 image?: T;
                                 newTab?: T;
@@ -1419,20 +1419,20 @@ export interface NavigationSelect<T extends boolean = true> {
   items?:
     | T
     | {
+        label?: T;
         type?: T;
         page?: T;
         post?: T;
-        label?: T;
         url?: T;
         image?: T;
         newTab?: T;
         children?:
           | T
           | {
+              label?: T;
               type?: T;
               page?: T;
               post?: T;
-              label?: T;
               url?: T;
               image?: T;
               newTab?: T;

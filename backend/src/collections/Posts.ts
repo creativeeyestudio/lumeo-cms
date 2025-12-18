@@ -14,17 +14,7 @@ const Posts: CollectionConfig = {
     useAsTitle: 'title',
   },
   access: {
-    read: ({ req }) => {
-      if (['contributor'].includes(req.user?.role ?? 'contributor')) {
-        return {
-          'config.createdBy': {
-            equals: req.user?.id,
-          },
-        };
-      }
-
-      return true;
-    },
+    read: () => true,
 
     create: ({ req }) =>
       ['admin', 'editor', 'author', 'contributor'].includes(req.user?.role ?? 'contributor'),
@@ -40,6 +30,7 @@ const Posts: CollectionConfig = {
     singular: 'Article',
     plural: 'Articles',
   },
+
   fields: [
     {
       name: 'title',
@@ -122,6 +113,41 @@ const Posts: CollectionConfig = {
           },
         },
       ],
+    },
+  ],
+
+  endpoints: [
+    {
+      path: '/slug/:slug',
+      method: 'get',
+      handler: async (req) => {
+        const slug = req.routeParams?.slug as string | undefined
+
+        if (!slug) {
+          return Response.json(
+            { error: 'Slug missing' },
+            { status: 400 }
+          )
+        }
+
+        const post = await req.payload.find({
+          collection: 'posts',
+          where: {
+            slug: { equals: slug },
+            'config.published': { equals: '2' },
+          },
+          limit: 1,
+        })
+
+        if (!post.docs.length) {
+          return Response.json(
+            { error: 'Post not found' },
+            { status: 404 }
+          )
+        }
+
+        return Response.json(post.docs[0])
+      },
     },
   ],
 
