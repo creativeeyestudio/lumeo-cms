@@ -32,7 +32,7 @@ const LinkComponent = (imageView: boolean = false): Field[] => [
                         admin: {
                             condition: (_data, sibling) => sibling.type === 'page',
                         },
-                        validate: (value, { siblingData }) => {
+                        validate: (value: any, { siblingData }: any) => {
                             if (siblingData.type === 'page' && !value) {
                                 return 'Une page est obligatoire'
                             }
@@ -46,7 +46,7 @@ const LinkComponent = (imageView: boolean = false): Field[] => [
                         admin: {
                             condition: (_data, sibling) => sibling.type === 'post',
                         },
-                        validate: (value, { siblingData }) => {
+                        validate: (value: any, { siblingData }: any) => {
                             if (siblingData.type === 'post' && !value) {
                                 return 'Un article est obligatoire'
                             }
@@ -59,7 +59,7 @@ const LinkComponent = (imageView: boolean = false): Field[] => [
                         admin: {
                             condition: (_data, sibling) => sibling.type === 'external',
                         },
-                        validate: (value, { siblingData }) => {
+                        validate: (value: any, { siblingData }: any) => {
                             if (siblingData.type === 'external' && !value) {
                                 return 'Une URL est obligatoire'
                             }
