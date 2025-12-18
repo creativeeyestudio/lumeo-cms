@@ -14,17 +14,7 @@ const Posts: CollectionConfig = {
     useAsTitle: 'title',
   },
   access: {
-    read: ({ req }) => {
-      if (['contributor'].includes(req.user?.role ?? 'contributor')) {
-        return {
-          'config.createdBy': {
-            equals: req.user?.id,
-          },
-        };
-      }
-
-      return true;
-    },
+    read: () => true,
 
     create: ({ req }) =>
       ['admin', 'editor', 'author', 'contributor'].includes(req.user?.role ?? 'contributor'),
