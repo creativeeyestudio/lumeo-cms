@@ -40,6 +40,7 @@ const Posts: CollectionConfig = {
     singular: 'Article',
     plural: 'Articles',
   },
+  
   fields: [
     {
       name: 'title',
@@ -122,6 +123,34 @@ const Posts: CollectionConfig = {
           },
         },
       ],
+    },
+  ],
+
+  endpoints: [
+    {
+      path: '/slug/:slug',
+      method: 'get',
+      handler: async (req) => {
+        const { slug } = req.routeParams
+
+        const post = await req.payload.find({
+          collection: 'posts',
+          where: {
+            slug: { equals: slug },
+            'config.published': { equals: '2' },
+          },
+          limit: 1,
+        })
+
+        if (!post.docs.length) {
+          return Response.json(
+            { error: 'Post not found' },
+            { status: 404 }
+          )
+        }
+
+        return Response.json(post.docs[0])
+      },
     },
   ],
 

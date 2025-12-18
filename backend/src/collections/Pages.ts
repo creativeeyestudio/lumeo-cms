@@ -89,7 +89,7 @@ const Pages: CollectionConfig = {
   ],
   endpoints: [
     {
-      path: '/:slug',
+      path: '/slug/:slug',
       method: 'get',
       handler: async (req) => {
         const { slug } = req.routeParams
