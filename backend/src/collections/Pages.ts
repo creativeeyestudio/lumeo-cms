@@ -92,7 +92,14 @@ const Pages: CollectionConfig = {
       path: '/slug/:slug',
       method: 'get',
       handler: async (req) => {
-        const { slug } = req.routeParams
+        const slug = req.routeParams?.slug as string | undefined
+
+        if (!slug) {
+          return Response.json(
+            { error: 'Slug missing' },
+            { status: 400 }
+          )
+        }
 
         const page = await req.payload.find({
           collection: 'pages',
