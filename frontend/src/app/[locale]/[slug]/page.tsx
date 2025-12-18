@@ -1,11 +1,18 @@
+import getPageBySlug from "@/lib/getPage";
+
 export type CurrentPageParams = Promise<{
   locale: string;
+  slug: string;
 }>;
 
 export default async function CurrentPage(props: {
   params: CurrentPageParams;
 }) {
-  const { locale } = await props.params;
+  const { locale, slug } = await props.params;
 
-  return <>{locale}</>;
+  const page = await getPageBySlug(slug);
+
+  console.log(page);
+
+  return locale;
 }
