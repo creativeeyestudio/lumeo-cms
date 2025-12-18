@@ -5,9 +5,9 @@ export type CurrentPostParams = Promise<{
   slug: string;
 }>;
 
-const Post = async (props: { params: CurrentPostParams }) => {
-  const { locale, slug } = await props.params;
-  
+const Post = async () => {
+  // const { locale, slug } = await props.params;
+
   return <div>Post</div>;
 };
 

@@ -1,8 +1,8 @@
-import { getPosts } from "@/lib/getPost";
+// import { getPosts } from "@/lib/getPost";
 import React from "react";
 
 const Posts = async () => {
-  const data = await getPosts();
+  // const data = await getPosts();
 
   return <div>Posts</div>;
 };
