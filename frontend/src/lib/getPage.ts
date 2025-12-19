@@ -1,5 +1,5 @@
-export default async function getPageBySlug(slug: string) {
-  const res = await fetch(`${process.env.PAYLOAD_URL}/api/pages/slug/${slug}`, {
+export default async function getPageBySlug(locale: string, slug: string) {
+  const res = await fetch(`${process.env.PAYLOAD_URL}/api/pages/locale/${locale}/slug/${slug}`, {
     cache: "no-store",
   });
 

@@ -118,14 +118,22 @@ const Posts: CollectionConfig = {
 
   endpoints: [
     {
-      path: '/slug/:slug',
+      path: '/locale/:locale/slug/:slug',
       method: 'get',
       handler: async (req) => {
+        const locale = req.routeParams?.locale as "all" | "fr" | "en" | "es" | undefined
         const slug = req.routeParams?.slug as string | undefined
 
         if (!slug) {
           return Response.json(
             { error: 'Slug missing' },
+            { status: 400 }
+          )
+        }
+
+        if (!locale) {
+          return Response.json(
+            { error: 'Locale missing' },
             { status: 400 }
           )
         }
@@ -136,6 +144,7 @@ const Posts: CollectionConfig = {
             slug: { equals: slug },
             'config.published': { equals: '2' },
           },
+          locale,
           limit: 1,
         })
 

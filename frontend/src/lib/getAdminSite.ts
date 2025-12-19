@@ -1,6 +1,6 @@
-export default async function getAdminSite() {
+export default async function getAdminSite(locale: string) {
   const res = await fetch(
-    `${process.env.PAYLOAD_URL}/api/globals/customization?depth=2&draft=false&locale=fr&trash=false`,
+    `${process.env.PAYLOAD_URL}/api/globals/customization?depth=2&draft=false&locale=${locale}&trash=false`,
     {
       cache: "no-store",
     },
