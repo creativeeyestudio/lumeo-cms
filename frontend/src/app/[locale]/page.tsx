@@ -9,5 +9,5 @@ export default async function HomePage(props: { params: PageHomeParams }) {
   const { locale } = await props.params;
   const admin = await getAdminSite(locale);
 
-  return <PageLayout props={admin.identity.homepage} />;
+  return <PageLayout logo={admin.identity.site_logo} page={admin.identity.homepage} />;
 }
