@@ -3,7 +3,7 @@ export default async function getAdminSite(locale: string) {
     `${process.env.PAYLOAD_URL}/api/globals/customization?depth=2&draft=false&locale=${locale}&trash=false`,
     {
       cache: "no-store",
-    },
+    }
   );
 
   if (!res.ok) {

@@ -16,7 +16,7 @@ COMPOSE_PROD = $(COMPOSE_BASE) -f docker-compose.prod.yml
 
 up:
 	@echo "Starting default (dev) environment..."
-	docker compose -f $(COMPOSE_DEV) up --build
+	docker compose -f $(COMPOSE_DEV) up -d --build
 
 down:
 	docker compose -f $(COMPOSE_DEV) down
