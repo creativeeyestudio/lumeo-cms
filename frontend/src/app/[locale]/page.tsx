@@ -11,5 +11,12 @@ export default async function HomePage(props: { params: PageHomeParams }) {
   const admin = await getAdminSite(locale);
   const menus = await getMenus();
 
-  return <PageLayout logo={admin.identity.site_logo} page={admin.identity.homepage} menus={menus} />;
+  return (
+    <PageLayout
+      locale={locale}
+      logo={admin.identity.site_logo}
+      page={admin.identity.homepage}
+      menus={menus}
+    />
+  );
 }
