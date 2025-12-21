@@ -71,19 +71,18 @@ const LinkComponent = (imageView: boolean = false): Field[] => [
             {
                 label: 'Paramètres',
                 description: 'Parametrages optionnels',
-                fields: [{
-                    name: 'image',
-                    label: 'Image',
-                    type: 'relationship',
-                    relationTo: 'media',
-                    admin: {
-                        hidden: !imageView,
-                    }
-                },
+                fields: [
                 {
                     name: 'newTab',
                     type: 'checkbox',
                     label: 'Ouvrir dans un nouvel onglet',
+                    defaultValue: false,
+                },
+                {
+                    name: 'noFollowLink',
+                    type: 'checkbox',
+                    label: 'Interdire le suivi du lien sur Google',
+                    defaultValue: false,
                 }
                 ]
             }

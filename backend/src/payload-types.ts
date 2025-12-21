@@ -227,8 +227,8 @@ export interface Page {
                           page?: (number | null) | Page;
                           post?: (number | null) | Post;
                           url?: string | null;
-                          image?: (number | null) | Media;
                           newTab?: boolean | null;
+                          noFollowLink?: boolean | null;
                           id?: string | null;
                         }[]
                       | null;
@@ -277,8 +277,8 @@ export interface Page {
                           page?: (number | null) | Page;
                           post?: (number | null) | Post;
                           url?: string | null;
-                          image?: (number | null) | Media;
                           newTab?: boolean | null;
+                          noFollowLink?: boolean | null;
                           id?: string | null;
                         }[]
                       | null;
@@ -328,8 +328,8 @@ export interface Page {
                           page?: (number | null) | Page;
                           post?: (number | null) | Post;
                           url?: string | null;
-                          image?: (number | null) | Media;
                           newTab?: boolean | null;
+                          noFollowLink?: boolean | null;
                           id?: string | null;
                         }[]
                       | null;
@@ -427,8 +427,8 @@ export interface Post {
                         page?: (number | null) | Page;
                         post?: (number | null) | Post;
                         url?: string | null;
-                        image?: (number | null) | Media;
                         newTab?: boolean | null;
+                        noFollowLink?: boolean | null;
                         id?: string | null;
                       }[]
                     | null;
@@ -477,8 +477,8 @@ export interface Post {
                         page?: (number | null) | Page;
                         post?: (number | null) | Post;
                         url?: string | null;
-                        image?: (number | null) | Media;
                         newTab?: boolean | null;
+                        noFollowLink?: boolean | null;
                         id?: string | null;
                       }[]
                     | null;
@@ -527,8 +527,8 @@ export interface Post {
                         page?: (number | null) | Page;
                         post?: (number | null) | Post;
                         url?: string | null;
-                        image?: (number | null) | Media;
                         newTab?: boolean | null;
+                        noFollowLink?: boolean | null;
                         id?: string | null;
                       }[]
                     | null;
@@ -578,8 +578,8 @@ export interface Post {
                         page?: (number | null) | Page;
                         post?: (number | null) | Post;
                         url?: string | null;
-                        image?: (number | null) | Media;
                         newTab?: boolean | null;
+                        noFollowLink?: boolean | null;
                         id?: string | null;
                       }[]
                     | null;
@@ -645,8 +645,8 @@ export interface Navigation {
         page?: (number | null) | Page;
         post?: (number | null) | Post;
         url?: string | null;
-        image?: (number | null) | Media;
         newTab?: boolean | null;
+        noFollowLink?: boolean | null;
         children?:
           | {
               label: string;
@@ -654,8 +654,8 @@ export interface Navigation {
               page?: (number | null) | Page;
               post?: (number | null) | Post;
               url?: string | null;
-              image?: (number | null) | Media;
               newTab?: boolean | null;
+              noFollowLink?: boolean | null;
               id?: string | null;
             }[]
           | null;
@@ -1051,8 +1051,8 @@ export interface PagesSelect<T extends boolean = true> {
                                       page?: T;
                                       post?: T;
                                       url?: T;
-                                      image?: T;
                                       newTab?: T;
+                                      noFollowLink?: T;
                                       id?: T;
                                     };
                                 id?: T;
@@ -1093,8 +1093,8 @@ export interface PagesSelect<T extends boolean = true> {
                                       page?: T;
                                       post?: T;
                                       url?: T;
-                                      image?: T;
                                       newTab?: T;
+                                      noFollowLink?: T;
                                       id?: T;
                                     };
                                 id?: T;
@@ -1136,8 +1136,8 @@ export interface PagesSelect<T extends boolean = true> {
                                       page?: T;
                                       post?: T;
                                       url?: T;
-                                      image?: T;
                                       newTab?: T;
+                                      noFollowLink?: T;
                                       id?: T;
                                     };
                                 id?: T;
@@ -1230,8 +1230,8 @@ export interface PostsSelect<T extends boolean = true> {
                                 page?: T;
                                 post?: T;
                                 url?: T;
-                                image?: T;
                                 newTab?: T;
+                                noFollowLink?: T;
                                 id?: T;
                               };
                           id?: T;
@@ -1272,8 +1272,8 @@ export interface PostsSelect<T extends boolean = true> {
                                 page?: T;
                                 post?: T;
                                 url?: T;
-                                image?: T;
                                 newTab?: T;
+                                noFollowLink?: T;
                                 id?: T;
                               };
                           id?: T;
@@ -1314,8 +1314,8 @@ export interface PostsSelect<T extends boolean = true> {
                                 page?: T;
                                 post?: T;
                                 url?: T;
-                                image?: T;
                                 newTab?: T;
+                                noFollowLink?: T;
                                 id?: T;
                               };
                           id?: T;
@@ -1357,8 +1357,8 @@ export interface PostsSelect<T extends boolean = true> {
                                 page?: T;
                                 post?: T;
                                 url?: T;
-                                image?: T;
                                 newTab?: T;
+                                noFollowLink?: T;
                                 id?: T;
                               };
                           id?: T;
@@ -1424,8 +1424,8 @@ export interface NavigationSelect<T extends boolean = true> {
         page?: T;
         post?: T;
         url?: T;
-        image?: T;
         newTab?: T;
+        noFollowLink?: T;
         children?:
           | T
           | {
@@ -1434,8 +1434,8 @@ export interface NavigationSelect<T extends boolean = true> {
               page?: T;
               post?: T;
               url?: T;
-              image?: T;
               newTab?: T;
+              noFollowLink?: T;
               id?: T;
             };
         id?: T;
