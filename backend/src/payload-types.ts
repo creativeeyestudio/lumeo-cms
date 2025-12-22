@@ -345,7 +345,7 @@ export interface Page {
               blockType: 'text-double-image';
             }
           | {
-              hero_image: (number | Media)[];
+              hero_image: number | Media;
               id?: string | null;
               blockName?: string | null;
               blockType: 'heroscreen';
@@ -595,7 +595,7 @@ export interface Post {
             blockType: 'text-double-image';
           }
         | {
-            hero_image: (number | Media)[];
+            hero_image: number | Media;
             id?: string | null;
             blockName?: string | null;
             blockType: 'heroscreen';
